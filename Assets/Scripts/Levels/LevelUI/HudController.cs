@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class HudController : MonoBehaviour
 {
@@ -22,10 +19,6 @@ public class HudController : MonoBehaviour
     [SerializeField] private float dashSliderChangeVelocity;
     [SerializeField] List<Sprite> dashHandleSprites;
     private Slider dashSlider;
-    [Header("Timer")]
-    [SerializeField] TextMeshProUGUI timerMinSecs;
-    [SerializeField] TextMeshProUGUI timerMilisec;
-    private float ElapsedTime => LevelManager.Instance.elapsedTime;
     private void Awake()
     {
         dashSlider = canvas.transform.Find("DashSlider").transform.Find("Slider").GetComponent<Slider>();
@@ -38,13 +31,7 @@ public class HudController : MonoBehaviour
     private void OnEnable()
     {
         _playerHealth.OnHealthChanged += UpdateHearts;
-        _cookingSystem.OnCookingProgressChanged += UpdateCookSlider;
-        _cookingSystem.OnSparingProgressChanged += UpdateSpareSlider;
         _playerMovement.OnDashChargeChanged += DashSliderChange;
-    }
-    private void Update()
-    {
-        UpdateTimer();
     }
     #region Life HUD
     private void SetCanvasHearts()
@@ -70,19 +57,6 @@ public class HudController : MonoBehaviour
         }
     }
     #endregion
-    #region Cooking Skill Slider HUD
-    public void UpdateCookSlider(float amount)
-    {
-        Color handleColor = amount == 0f || amount == 360f ? new Color32(78, 57, 57, 255) : new Color32(255, 213, 65, 255);
-        canvas.transform.Find("SkillSlider").transform.Find("PanFill").GetComponent<Image>().fillAmount = amount;
-        canvas.transform.Find("SkillSlider").transform.Find("PanHandle").transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, -amount * 360));
-        canvas.transform.Find("SkillSlider").transform.Find("PanHandle").GetComponent<Image>().color = handleColor;
-    }
-    public void UpdateSpareSlider(float amount)
-    {
-        canvas.transform.Find("SkillSlider").transform.Find("Slider").transform.Find("SliderFill").GetComponent<Image>().fillAmount = amount;
-    }
-    #endregion
     #region Dash Slider HUD
     private void DashSliderChange(float value)
     {
@@ -97,17 +71,6 @@ public class HudController : MonoBehaviour
             slider.value -= dashSliderChangeVelocity * Time.deltaTime;
         }
         dashSlider.handleRect.GetComponent<Image>().sprite = dashHandleSprites[(int)value];
-    }
-    #endregion
-    #region Timer
-    private void UpdateTimer()
-    {
-        int extractedDecimals = (int)((ElapsedTime - (int)ElapsedTime) * 100);
-        int minutes = Mathf.FloorToInt(ElapsedTime / 60);
-        int seconds = Mathf.FloorToInt(ElapsedTime % 60);
-        timerMinSecs.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        timerMilisec.text = extractedDecimals.ToString("00");
-
     }
     #endregion
 }
