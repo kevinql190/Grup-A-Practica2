@@ -11,7 +11,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask _targetLayers;
     [SerializeField] private int targetCount = 1;
-    [SerializeField] Color shootingColor = Color.white; // The color of the line
+    [SerializeField] Color shootingColor;
     [SerializeField] private float shootingLineDuration;
     [SerializeField] private float defaultLineDistance;
     private LineRenderer lineRenderer;
@@ -24,8 +24,9 @@ public class PlayerGun : MonoBehaviour
             lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
-        lineRenderer.startColor = shootingColor;
-        lineRenderer.endColor = shootingColor;
+        Material whiteDiffuseMat = new(Shader.Find("Standard"));
+        whiteDiffuseMat.SetColor("_Color", shootingColor);
+        lineRenderer.material = whiteDiffuseMat;
         lineRenderer.enabled = false;
     }
     private void Update()
@@ -37,21 +38,21 @@ public class PlayerGun : MonoBehaviour
     {
         if (!PlayerInputHandler.AttackJustPressed || rechargeTime.IsCoolingDown) return;
         Shoot();
+        rechargeTime.StartCooldown();
     }
     private void Shoot()
     {
         Ray ray = new(transform.position,transform.forward);
         var hits = Physics.RaycastAll(ray, attackRange, _targetLayers);
         Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
-        int i = 0;
+        int i = -1;
         foreach (RaycastHit hit in hits)
         {
+            i++;
             if (hit.transform.TryGetComponent(out IDamageable damageable))
                 damageable.TakeDamage(-attackDamage);
-            if (i >= targetCount - 1) break;
-            i++;
+            if (i >= targetCount) break;
         }
-        Debug.Log(i);
         if (hits.Length != 0)
         {
             DrawShootTrail(hits[i].transform.position);
@@ -81,5 +82,9 @@ public class PlayerGun : MonoBehaviour
             lineRenderer.widthMultiplier = 1 - value;
             yield return null;
         }
+    }
+    private void OnDisable()
+    {
+        lineRenderer.widthMultiplier = 0;
     }
 }

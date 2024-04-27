@@ -41,8 +41,8 @@ public class HudController : MonoBehaviour
     private void OnEnable()
     {
         _playerHealth.OnHealthChanged += UpdateHearts;
-        _player.GetComponent<CookingSystem>().OnCookingProgressChanged += UpdateCookSlider;
-        _player.GetComponent<CookingSystem>().OnSparingProgressChanged += UpdateSpareSlider;
+        //_player.GetComponent<PlayerGun>().OnCookingProgressChanged += UpdateCookSlider;
+        //_player.GetComponent<CookingSystem>().OnSparingProgressChanged += UpdateSpareSlider;
         _player.GetComponent<PlayerMovement>().OnDashChargeChanged += DashSliderChange;
         _player.GetComponent<PanController>().OnFoodSpriteChanged += ChangeFoodSprite;
     }

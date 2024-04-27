@@ -16,16 +16,16 @@ TagManager:
   - UI
   - Ground
   - Wall
-  - f
+  - Objects
   - Player
   - Enemy
   - Raycast
-  - Breakable
-  - a
-  - b
-  - c
-  - d
-  - e
+  - Environment Walkable
+  - Environment non walkable
+  - Bullets
+  - Breakables
+  - Occluded
+  - Static Objects
   - 
   - 
   - 
