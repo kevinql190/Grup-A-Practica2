@@ -16,16 +16,16 @@ TagManager:
   - UI
   - Ground
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - f
+  - Player
+  - Enemy
+  - Raycast
+  - Breakable
+  - a
+  - b
+  - c
+  - d
+  - e
   - 
   - 
   - 
