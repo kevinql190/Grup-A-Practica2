@@ -9292,6 +9292,7 @@ GameObject:
   - component: {fileID: 263688083}
   - component: {fileID: 263688082}
   - component: {fileID: 263688081}
+  - component: {fileID: 263688084}
   m_Layer: 0
   m_Name: Sala2b
   m_TagString: Untagged
@@ -14175,6 +14176,29 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 1
+--- !u!114 &263688084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263688079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42df78a65633ab449b3d4c87483d5e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveTime: 1
+  dissolveShader: {fileID: 2100000, guid: 8a984dee494319f489471c7ba6f24ce5, type: 2}
+  enterRooms:
+  - {fileID: 907278330}
+  - {fileID: 1400620159}
+  exitRooms:
+  - {fileID: 436566809}
+  - {fileID: 1010178899}
+  waveManager: {fileID: 263688081}
+  startRoomCamera: {fileID: 0}
+  startRoomTime: 0
 --- !u!1 &268723725
 GameObject:
   m_ObjectHideFlags: 0
@@ -15541,7 +15565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678686898519845843, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 0
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 3678686898519845843, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: raycastMask.m_Bits
@@ -15549,12 +15573,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678686898519845843, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: raycastLayer.m_Bits
-      value: 0
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 3925365868652180673, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 491528831}
+    - target: {fileID: 5332065009537395559, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
+      propertyPath: _enemyLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332065009537395559, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
+      propertyPath: _breakableLayer.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 8356709148019907364, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: m_Name
       value: Character
@@ -25174,8 +25206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dissolveTime: 0
   dissolveShader: {fileID: 2100000, guid: 8a984dee494319f489471c7ba6f24ce5, type: 2}
-  enterRooms: []
-  exitRooms: []
+  enterRooms:
+  - {fileID: 198307086}
+  - {fileID: 1550667369}
+  exitRooms:
+  - {fileID: 1400620159}
+  - {fileID: 263688079}
   waveManager: {fileID: 907278332}
   startRoomCamera: {fileID: 0}
   startRoomTime: 0
@@ -27809,6 +27845,7 @@ GameObject:
   - component: {fileID: 1010178903}
   - component: {fileID: 1010178902}
   - component: {fileID: 1010178901}
+  - component: {fileID: 1010178904}
   m_Layer: 0
   m_Name: Sala3b
   m_TagString: Untagged
@@ -33495,6 +33532,29 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 1
+--- !u!114 &1010178904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010178899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42df78a65633ab449b3d4c87483d5e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveTime: 1
+  dissolveShader: {fileID: 2100000, guid: 8a984dee494319f489471c7ba6f24ce5, type: 2}
+  enterRooms:
+  - {fileID: 263688079}
+  - {fileID: 436566809}
+  exitRooms:
+  - {fileID: 911492975}
+  - {fileID: 857856965}
+  waveManager: {fileID: 1010178901}
+  startRoomCamera: {fileID: 0}
+  startRoomTime: 0
 --- !u!1001 &1014275153
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
-    private PanController _panController;
     [Header("Attack Info")]
     [SerializeField] private int playerDamage;
     [SerializeField] private float attackPushSpeed;
@@ -20,12 +19,6 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float attackDistance;
     [SerializeField] private float attackRadius;
     private Vector3 AttackPoint => transform.position + transform.forward * attackDistance;
-    //private PlayerMovement _playerMovement;
-    private void Start()
-    {
-        _panController = GetComponent<PanController>();
-        //_playerMovement = GetComponent<PlayerMovement>();
-    }
     private void Update()
     {
         HandleAttack();
@@ -33,14 +26,13 @@ public class PlayerCombat : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (!PlayerInputHandler.AttackJustPressed || _panController.currentFoodType != FoodType.Default || attackTime.IsCoolingDown) return;
-        GetComponent<PlayerAnimatorManager>().TriggerAnimation("attack");
+        if (!PlayerInputHandler.AttackJustPressed || attackTime.IsCoolingDown) return;
+        GetComponentInParent<PlayerAnimatorManager>().TriggerAnimation("attack");
         StartCoroutine(AttackSequence());
     }
     private IEnumerator AttackSequence()
     {
         yield return new WaitForSeconds(attackDelay);
-        //StartCoroutine(_playerMovement.ForwardPush(attackPushSpeed, attackTime.CooldownTime));
         Collider[] breakableColliders = Physics.OverlapSphere(AttackPoint, attackRadius, _breakableLayer);
         if (breakableColliders.Length != 0)
         {
@@ -66,7 +58,6 @@ public class PlayerCombat : MonoBehaviour
         if (closestEnemy != null)
         {
             closestEnemy.GetComponent<IDamageable>().TakeDamage(-playerDamage);
-            closestEnemy.GetComponent<IStealFoodType>()?.StealFoodType(_panController);
         }
     }
     private void OnDrawGizmosSelected()

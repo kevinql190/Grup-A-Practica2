@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ChangeWeapon",
+                    "type": "Value",
+                    "id": "bec4c26a-5831-47dd-9020-166df0db8f70",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -164,6 +173,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f6293f4e-c538-4163-9869-ec55995ee8ba",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "17fcbca1-80a2-482b-a127-0ab67bee2779",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -247,6 +267,17 @@
                     "processors": "ScaleVector2(x=2,y=2),StickDeadzone",
                     "groups": "Xbox",
                     "action": "SkillAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b9a9399-16ae-4812-a63f-3b4b6736adb2",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "ChangeWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

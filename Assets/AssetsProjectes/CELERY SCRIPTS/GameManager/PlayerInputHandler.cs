@@ -16,9 +16,11 @@ public class PlayerInputHandler : SingletonPersistent<PlayerInputHandler>
     private InputAction _dashAction;
     private InputAction _pauseAction;
     private InputAction _pauseActionUI;
+    private InputAction _changeWeaponAction;
 
     public static Vector2 MoveInput { get; private set; }
     public static Vector2 SkillAimInput { get; private set; }
+    public static Vector2 ChangeWeaponInput { get; private set; }
     public static bool AttackJustPressed { get; private set; }
     public static bool DashJustPressed { get; private set; }
     public static bool PauseJustPressed { get; private set; }
@@ -38,6 +40,7 @@ public class PlayerInputHandler : SingletonPersistent<PlayerInputHandler>
         _dashAction = playerControls.FindActionMap("Gameplay").FindAction("Dash");
         _pauseAction = playerControls.FindActionMap("Gameplay").FindAction("Pause");
         _pauseActionUI = playerControls.FindActionMap("UI").FindAction("SwitchActionMap");
+        _changeWeaponAction = playerControls.FindActionMap("Gameplay").FindAction("ChangeWeapon");
         EnableInputs();
         RegisterInputActions();
     }
@@ -48,6 +51,9 @@ public class PlayerInputHandler : SingletonPersistent<PlayerInputHandler>
 
         _skillAimAction.performed += context => SkillAimInput = context.ReadValue<Vector2>();
         _skillAimAction.canceled += context => SkillAimInput = Vector2.zero;
+
+        _changeWeaponAction.performed += context => ChangeWeaponInput = context.ReadValue<Vector2>();
+        _changeWeaponAction.canceled += context => ChangeWeaponInput = Vector2.zero;
     }
     public void EnableInputs()
     {
@@ -57,6 +63,7 @@ public class PlayerInputHandler : SingletonPersistent<PlayerInputHandler>
         _dashAction.Enable();
         _pauseAction.Enable();
         _pauseActionUI.Enable();
+        _changeWeaponAction.Enable();
     }
     public void DisableInputs()
     {
@@ -66,6 +73,7 @@ public class PlayerInputHandler : SingletonPersistent<PlayerInputHandler>
         _dashAction.Disable();
         _pauseAction.Disable();
         _pauseActionUI.Disable();
+        _changeWeaponAction.Disable();
     }
     public void LockInputs()
     {
