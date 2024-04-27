@@ -21,18 +21,20 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: -6465566751694194690, guid: 13d8c977120ddae46b3db94828cd2ad1,
-    type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 2100000, guid: 8a984dee494319f489471c7ba6f24ce5, type: 2}
   m_ModifiedSerializedProperties: 2
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _EMISSION
+  - _GLOSSYREFLECTIONS_OFF
   m_InvalidKeywords: []
-  m_LightmapFlags: 6
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - GRABPASS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -42,4 +44,5 @@ Material:
     - _Dissolve: 0
     m_Colors:
     - _Base_Color: {r: 0.8862745, g: 0.6509804, b: 0.5137255, a: 0}
+    - _Color: {r: 0.8862745, g: 0.6509804, b: 0.5137255, a: 1}
   m_BuildTextureStacks: []

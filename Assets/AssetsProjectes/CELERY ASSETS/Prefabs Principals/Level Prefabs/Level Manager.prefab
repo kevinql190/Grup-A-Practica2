@@ -44,4 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d631eac12e21a64d8593257de4a0b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportAtStart: 1
+  roomsToActivate: 3
+  startRoomGameObject: {fileID: 0}
+  blackFade: {fileID: 0}
+  fadeTime: 1.5
   rooms: []
+  checkpoints: []
+  elapsedTime: 0
+  isTimerON: 0
