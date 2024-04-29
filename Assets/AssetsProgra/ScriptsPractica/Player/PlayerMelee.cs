@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCombat : MonoBehaviour
+public class PlayerMelee : MonoBehaviour
 {
     [Header("Attack Info")]
     [SerializeField] private int playerDamage;

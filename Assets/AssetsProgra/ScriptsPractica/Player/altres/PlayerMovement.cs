@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool dashGizmo;
 
     private NavMeshAgent agent;
-    private PlayerCombat combat;
+    private PlayerMelee playerMelee;
     private SkillAbilities abilities;
     [SerializeField] private CapsuleCollider capsule;
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentSpeed = moveSpeed;
         agent = GetComponent<NavMeshAgent>();
-        combat = GetComponent<PlayerCombat>();
+        playerMelee = GetComponent<PlayerMelee>();
         abilities = GetComponent<SkillAbilities>();
         StartCoroutine(DashRecharge());
     }
