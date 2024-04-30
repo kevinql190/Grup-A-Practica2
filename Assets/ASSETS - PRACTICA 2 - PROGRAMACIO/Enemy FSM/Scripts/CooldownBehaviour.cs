@@ -13,7 +13,7 @@ public class CooldownBehaviour : BaseBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float attackRange = enemy.attackRange;
-        float cooldownAttack = enemy.cooldownAttack;
+        cooldownAttack = enemy.cooldownAttack;
         if (CheckTime()) 
         {
             animator.SetBool("inRangeAttack", InRange(animator.transform, attackRange));
