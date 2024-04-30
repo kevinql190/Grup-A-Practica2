@@ -1,35 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 public class PlayerHeadIK : MonoBehaviour
 {
-    [SerializeField] AimConstraint aimConstraint;
-    [SerializeField] GameObject targetObject;
+    [SerializeField] GameObject targetConstraintCenter;
     [SerializeField] float lookRadius;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private float sphereColliderDistance;
+    [SerializeField] private Vector3 colliderSize;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private bool isGizmoActive;
     private void Update()
     {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, lookRadius, _enemyLayer);
-        if (enemies.Length == 0) targetObject.transform.position = transform.position + transform.forward;
-        else lookAtTarget(enemies);
+        Collider[] enemies = Physics.OverlapBox(transform.position + transform.forward * sphereColliderDistance, colliderSize, Quaternion.identity, _enemyLayer);
+        Quaternion lookAngle = enemies.Length == 0 ? Quaternion.LookRotation(transform.forward) : GetLookTarget(enemies);
+        UpdateLookAt(lookAngle);
     }
-    private void lookAtTarget(Collider[] enemies)
+
+    private void UpdateLookAt(Quaternion angle)
     {
-        float _closestDistance = Mathf.Infinity;
-        Collider closestEnemy = new();
-        foreach (Collider enemy in enemies)
+        targetConstraintCenter.transform.rotation = Quaternion.Slerp(targetConstraintCenter.transform.rotation, angle, rotationSpeed * Time.deltaTime);
+    }
+
+    Quaternion GetLookTarget(Collider[] enemies)
+    {
+        Collider bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach (Collider potentialTarget in enemies)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < _closestDistance)
+            Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
             {
-                closestEnemy = enemy;
-                _closestDistance = distanceToEnemy;
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
             }
         }
-        if (closestEnemy != null)
-        {
-            targetObject.transform.position = closestEnemy.transform.position;
-        }
+        return Quaternion.LookRotation(bestTarget.transform.position - transform.position);
+    }
+    private void OnDrawGizmos()
+    {
+        if (!isGizmoActive) return;
+        Gizmos.DrawCube(transform.position + transform.forward * sphereColliderDistance, colliderSize);
     }
 }
