@@ -26648,6 +26648,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9207839825851946394, guid: 61bd94b8e88808140b01f7b08ee2c7ab, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -9207839825851946394, guid: 61bd94b8e88808140b01f7b08ee2c7ab, type: 3}
+      propertyPath: sphereRadius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -9207839825851946394, guid: 61bd94b8e88808140b01f7b08ee2c7ab, type: 3}
+      propertyPath: distanceAbove
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -9207839825851946394, guid: 61bd94b8e88808140b01f7b08ee2c7ab, type: 3}
+      propertyPath: distanceAhead
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1571142066699328122, guid: 61bd94b8e88808140b01f7b08ee2c7ab, type: 3}
       propertyPath: m_Name
       value: TomatoPrefab
