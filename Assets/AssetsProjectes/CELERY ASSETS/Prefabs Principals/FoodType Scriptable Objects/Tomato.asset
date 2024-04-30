@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   FoodType: 1
-  prefabAssigned: {fileID: 8672437118234991365, guid: 1798f74e83a450e47816c4ca667bd37e,
-    type: 3}
+  prefabAssigned: {fileID: 8672437118234991365, guid: 1798f74e83a450e47816c4ca667bd37e, type: 3}
   cookingTime: 1.5
   spareCookingTime: 3
   skillSprite: {fileID: 21300000, guid: a32745bf4cde38b45af6ca527093cc5d, type: 3}
   skillHudSprite: {fileID: 21300000, guid: a5e7741c0be5c564394fef7531bfa522, type: 3}
-  enemyHealth: 1
+  enemyHealth: 3
   receptariSprite: {fileID: 21300000, guid: a5e7741c0be5c564394fef7531bfa522, type: 3}

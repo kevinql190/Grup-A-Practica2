@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class AttackBehaviour : BaseBehaviour
 {
@@ -16,6 +15,7 @@ public class AttackBehaviour : BaseBehaviour
         if (!hasAttacked)
         {
             // Attack
+            Debug.Log("Attack");
             enemy.Attack();
             hasAttacked = true;
         }
