@@ -15,10 +15,6 @@ public class CooldownBehaviour : BaseBehaviour
         float attackRange = enemy.attackRange;
         cooldownAttack = enemy.cooldownAttack;
 
-        // needsHeal
-        if (enemy.CurrentHealth <= 2)
-            animator.SetBool("needsHeal", true);
-
         // Prepare Attack
         if (CheckTime()) 
         {
@@ -29,5 +25,20 @@ public class CooldownBehaviour : BaseBehaviour
     {
         _timer += Time.deltaTime;
         return _timer > cooldownAttack;
+    }
+
+    // needsHeal
+    private void OnEnable()
+    {
+        Enemy.OnEnemyHealthReached += HandleEnemyHealthReached;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyHealthReached -= HandleEnemyHealthReached;
+    }
+    private void HandleEnemyHealthReached(Animator animator)
+    {
+        animator.SetBool("needsHeal", true);
     }
 }
