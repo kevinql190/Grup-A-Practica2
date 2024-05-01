@@ -13,7 +13,6 @@ public class TomatoAttack : Enemy
     public float sphereRadius = 0.6f;
     public float distanceAhead = 0.9f; 
     public float distanceAbove = 0.6f;
-
     void Start()
     {
         target = GameObject.FindGameObjectsWithTag("Player")[0];

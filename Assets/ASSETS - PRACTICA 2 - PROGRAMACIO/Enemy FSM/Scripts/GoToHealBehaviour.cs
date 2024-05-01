@@ -14,6 +14,7 @@ public class GoToHealBehaviour : BaseBehaviour
         enemyNavmesh = animator.GetComponent<NavMeshAgent>();
 
         // Go to heal
+        reachedHealObject = false;
         healObject = GameObject.FindGameObjectWithTag("HealEnemy");
         enemyNavmesh.SetDestination(healObject.transform.position);
     }

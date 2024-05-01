@@ -20,10 +20,6 @@ public class ChaseBehaviour : BaseBehaviour
         bool isAttacking = InRange(animator.transform, attackRange);
         animator.SetBool("isPreparingAttack", isAttacking);
 
-        // needsHeal
-        if (enemy.CurrentHealth <= 2)
-            animator.SetBool("needsHeal", true);
-
         // Navmesh
         Move(animator);
     }
@@ -31,5 +27,20 @@ public class ChaseBehaviour : BaseBehaviour
     private void Move(Animator animator)
     {
         enemyNavmesh.SetDestination(_player.position);
+    }
+
+    // needsHeal
+    private void OnEnable()
+    {
+        Enemy.OnEnemyHealthReached += HandleEnemyHealthReached;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyHealthReached -= HandleEnemyHealthReached;
+    }
+    private void HandleEnemyHealthReached(Animator animator)
+    {
+        animator.SetBool("needsHeal", true);
     }
 }
