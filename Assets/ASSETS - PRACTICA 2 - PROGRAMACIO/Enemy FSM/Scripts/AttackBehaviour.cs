@@ -14,8 +14,6 @@ public class AttackBehaviour : BaseBehaviour
     {
         if (!hasAttacked)
         {
-            // Attack
-            Debug.Log("Attack");
             enemy.Attack();
             hasAttacked = true;
         }

@@ -20,6 +20,10 @@ public class ChaseBehaviour : BaseBehaviour
         bool isAttacking = InRange(animator.transform, attackRange);
         animator.SetBool("isPreparingAttack", isAttacking);
 
+        // needsHeal
+        if (enemy.CurrentHealth <= 2)
+            animator.SetBool("needsHeal", true);
+
         // Navmesh
         Move(animator);
     }
