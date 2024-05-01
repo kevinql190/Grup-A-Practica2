@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour, IDamageable, IStealFoodType
     public float stoppingDistanceAttack = 1f; //rang en el que es para el navagent abans de preparar-se per atacar
     private bool isDead = false;
 
+    // Event -> GoToHeal
+    public delegate void EnemyHealthReachedDelegate(Animator animator);
+    public static event EnemyHealthReachedDelegate OnEnemyHealthReached;
+
     private void Awake()
     {
         CurrentHealth = EnemyType.enemyHealth;
@@ -36,6 +40,11 @@ public class Enemy : MonoBehaviour, IDamageable, IStealFoodType
         if (CurrentHealth > 1) //Damage
         {
             CurrentHealth += damage;
+            // GoToHeal
+            if (CurrentHealth <= 2)
+            {
+                OnEnemyHealthReached?.Invoke(GetComponent<Animator>());
+            }
             //Efecte damage i animació
         }
         else //Mort
