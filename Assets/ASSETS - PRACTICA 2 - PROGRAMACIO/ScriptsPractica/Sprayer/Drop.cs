@@ -12,10 +12,10 @@ public class Drop : MonoBehaviour
         Debug.Log("Caca");
     }
 
-    public void Init(float force)
+    public void Init(float force, Vector3 launchDirection)
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.velocity = transform.forward * force;
+        _rigidbody.velocity = launchDirection * force;
     }
     private void OnCollisionEnter(Collision collision)
     {

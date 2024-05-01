@@ -695,10 +695,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.9650285
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.18267375, y: 0, z: -0.055910796}
 --- !u!23 &124422685
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ Transform:
   m_GameObject: {fileID: 124422683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.261795, y: -8.006269, z: -7.668849}
+  m_LocalPosition: {x: -29.13, y: -8.006269, z: -1.5799999}
   m_LocalScale: {x: 0.3932478, y: 1, z: 0.4514974}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41965,7 +41965,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.01, y: 1.09, z: -0.01}
-  m_LocalScale: {x: 2.5429258, y: 1, z: 2.2148523}
+  m_LocalScale: {x: 0.67288357, y: 0.26461, z: 0.5860721}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 124422687}
@@ -43319,7 +43319,7 @@ MonoBehaviour:
   FirePoint: {fileID: 1078305728}
   FireForce: 5
   fillProbability: 0.9
-  ndrops: 1
+  ndrops: 14
   DropGradient:
     serializedVersion: 2
     key0: {r: 0.59832674, g: 0.87540996, b: 0.9245283, a: 1}
@@ -43353,6 +43353,7 @@ MonoBehaviour:
   colorSpeed: 2.4
   Box: {fileID: 1348082459}
   spawnInterval: 0.1
+  rotateSpeed: 20
 --- !u!4 &1208720899
 Transform:
   m_ObjectHideFlags: 0
@@ -43362,7 +43363,7 @@ Transform:
   m_GameObject: {fileID: 1208720897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.511795, y: -6.2962694, z: -8.098849}
+  m_LocalPosition: {x: -28.77, y: -7.18, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
