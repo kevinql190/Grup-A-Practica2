@@ -8,10 +8,16 @@ public class GoToHealBehaviour : BaseBehaviour
     private NavMeshAgent enemyNavmesh;
     private GameObject healObject;
     private bool reachedHealObject = false;
+    // Speed
+    private float originalSpeed;
+    public float speedGoToHeal = 3.0f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         enemyNavmesh = animator.GetComponent<NavMeshAgent>();
+        originalSpeed = enemyNavmesh.speed;
+        // Extra IA - modificar la velocidad del enemigo cuando se va a curar
+        enemyNavmesh.speed = speedGoToHeal;
 
         // Go to heal
         reachedHealObject = false;
@@ -23,6 +29,8 @@ public class GoToHealBehaviour : BaseBehaviour
         if (!reachedHealObject && enemyNavmesh.remainingDistance <= enemyNavmesh.stoppingDistance)
         {
             reachedHealObject = true;
+            // Original Speed
+            enemyNavmesh.speed = originalSpeed;
             animator.SetBool("isHealing", true);
         }
     }
