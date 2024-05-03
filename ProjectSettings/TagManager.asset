@@ -9,6 +9,8 @@ TagManager:
   - WayPoint
   - HealEnemy
   - CheckpointCarrot2
+  - PathManagerWaypoints
+  - WayPoint1
   layers:
   - Default
   - TransparentFX

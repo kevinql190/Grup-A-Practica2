@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  WaitTime: 3
+  WaitTime: 10
   CheckPoint: {fileID: 0}
   Speed: 2
   WhatIsGround:

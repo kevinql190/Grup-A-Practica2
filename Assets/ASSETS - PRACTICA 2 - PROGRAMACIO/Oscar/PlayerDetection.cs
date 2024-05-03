@@ -30,7 +30,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if (IsPlayerClose())
         {
-            Debug.Log(IsInFieldOfView());
+
         }
     }
 

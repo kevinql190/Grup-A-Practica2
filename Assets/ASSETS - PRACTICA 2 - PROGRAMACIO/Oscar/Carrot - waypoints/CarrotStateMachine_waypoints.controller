@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7850665331645428875
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183cce22abb34ba4c9a0e579f9c175e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
 --- !u!114 &-7566746083146544005
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,7 +51,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 4356763294918239556}
   m_StateMachineBehaviours:
-  - {fileID: -7850665331645428875}
+  - {fileID: -4112016767330837433}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -93,7 +80,7 @@ AnimatorState:
   - {fileID: -6918678039336702251}
   - {fileID: 3135879894918125426}
   m_StateMachineBehaviours:
-  - {fileID: 9157204326096567942}
+  - {fileID: 706035693088525469}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -108,6 +95,21 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-4112016767330837433
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ec41b1fe70f164883bca8f844a16f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  exclamationPrefab: {fileID: 0}
+  heightExclamation: 2
 --- !u!1102 &-3949531302453196253
 AnimatorState:
   serializedVersion: 6
@@ -308,6 +310,21 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &706035693088525469
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be4b367263912d44b6b344fbee35466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  WaitTime: 10
+  target: {fileID: 0}
 --- !u!1101 &1844563677683218413
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -563,26 +580,3 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &9157204326096567942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fac9656b5627ed4bab87db3060c051a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  WaitTime: 3
-  CheckPoint: {fileID: 0}
-  Speed: 2
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  WhatIsWall:
-    serializedVersion: 2
-    m_Bits: 128
-  WallDetectionDistance: 0.5

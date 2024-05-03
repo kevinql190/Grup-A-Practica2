@@ -9,7 +9,6 @@ public class Drop : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 1);
-        Debug.Log("Caca");
     }
 
     public void Init(float force, Vector3 launchDirection)
