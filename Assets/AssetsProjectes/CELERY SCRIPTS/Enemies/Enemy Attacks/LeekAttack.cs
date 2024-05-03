@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class LeekAttack : Enemy
 {
+    private Camera mainCamera;
+
     [Header("Leek")]
     private Animator animator;
     public float rotationAttackTime = 0.5f;
@@ -15,10 +17,15 @@ public class LeekAttack : Enemy
     {
         target = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
+        mainCamera = Camera.main;
     }
     private void Update()
     {
         healthSliderLeek.value = CurrentHealth;
+        // Orientar el slider a la camera
+        Vector3 cameraForward = mainCamera.transform.forward;
+        cameraForward.y = 0f;
+        healthSliderLeek.transform.rotation = Quaternion.LookRotation(cameraForward);
     }
 
     public override void Attack()
