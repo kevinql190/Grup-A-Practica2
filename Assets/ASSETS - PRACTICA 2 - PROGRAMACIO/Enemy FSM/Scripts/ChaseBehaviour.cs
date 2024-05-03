@@ -5,16 +5,35 @@ using UnityEngine.AI;
 
 public class ChaseBehaviour : BaseBehaviour
 {
-    private NavMeshAgent enemyNavmesh; 
+    private NavMeshAgent enemyNavmesh;
+    // Extra IA - exclamation
+    private bool firstTimeDetected = true;
+    public GameObject exclamationPrefab;
+    private Camera mainCamera;
+    public GameObject exclamation;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         enemyNavmesh = animator.GetComponent<NavMeshAgent>();
         enemyNavmesh.isStopped = false;
+
+        // Extra IA - exclamation
+        mainCamera = Camera.main;
+        if (firstTimeDetected && exclamationPrefab != null)
+        {
+            exclamation = Instantiate(exclamationPrefab, animator.gameObject.transform);
+            exclamation.transform.localPosition = Vector3.up * 2f; 
+            firstTimeDetected = false;
+        }
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Extra IA - Exclamation
+        Vector3 cameraForward = mainCamera.transform.forward;
+        cameraForward.y = 0f;
+        exclamation.transform.rotation = Quaternion.LookRotation(cameraForward);
+
         // isPreparingAttack
         float attackRange = enemy.attackRange;
         bool isAttacking = InRange(animator.transform, attackRange);
@@ -23,7 +42,6 @@ public class ChaseBehaviour : BaseBehaviour
         // Navmesh
         Move(animator);
     }
-
     private void Move(Animator animator)
     {
         enemyNavmesh.SetDestination(_player.position);

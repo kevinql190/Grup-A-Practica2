@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  exclamationPrefab: {fileID: 2134284237273112152, guid: 77ac6094a60035443ad6704ab4a4ed53, type: 3}
 --- !u!1102 &-4791689554596416039
 AnimatorState:
   serializedVersion: 6
