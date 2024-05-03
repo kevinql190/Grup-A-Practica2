@@ -10,7 +10,8 @@ public class ChaseBehaviour : BaseBehaviour
     private bool firstTimeDetected = true;
     public GameObject exclamationPrefab;
     private Camera mainCamera;
-    public GameObject exclamation;
+    private GameObject exclamation;
+    private ExclamationDestroyer exclamationDestroyer;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -25,14 +26,21 @@ public class ChaseBehaviour : BaseBehaviour
             exclamation = Instantiate(exclamationPrefab, animator.gameObject.transform);
             exclamation.transform.localPosition = Vector3.up * 2f; 
             firstTimeDetected = false;
+
+            // Destruir la exclamacion 
+            exclamationDestroyer = exclamation.AddComponent<ExclamationDestroyer>();
+            exclamationDestroyer.DestroyAfterDelay(3f);
         }
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //Extra IA - Exclamation
-        Vector3 cameraForward = mainCamera.transform.forward;
-        cameraForward.y = 0f;
-        exclamation.transform.rotation = Quaternion.LookRotation(cameraForward);
+        if (exclamation != null && exclamationPrefab != null) 
+        {
+            Vector3 cameraForward = mainCamera.transform.forward;
+            cameraForward.y = 0f;
+            exclamation.transform.rotation = Quaternion.LookRotation(cameraForward);
+        }
 
         // isPreparingAttack
         float attackRange = enemy.attackRange;
@@ -60,5 +68,20 @@ public class ChaseBehaviour : BaseBehaviour
     private void HandleEnemyHealthReached(Animator animator)
     {
         animator.SetBool("needsHeal", true);
+    }
+
+    //Extra IA - Exclamation
+    public class ExclamationDestroyer : MonoBehaviour
+    {
+        public void DestroyAfterDelay(float delay)
+        {
+            StartCoroutine(DestroyDelayed(delay));
+        }
+
+        private IEnumerator DestroyDelayed(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Destroy(gameObject);
+        }
     }
 }

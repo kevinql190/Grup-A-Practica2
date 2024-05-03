@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  speedGoToHeal: 3
+  speedGoToHeal: 4
 --- !u!1101 &-1306718589915351310
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
