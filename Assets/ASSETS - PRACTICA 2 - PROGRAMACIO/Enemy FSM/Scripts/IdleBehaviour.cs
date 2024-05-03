@@ -21,5 +21,16 @@ public class IdleBehaviour : BaseBehaviour
         {
             animator.SetBool("isChasing", true);
         }
+
+        // isPatrolling
+        if (CheckTime())
+        {
+            animator.SetBool("isPatroling", true);
+        }
+    }
+    protected bool CheckTime()
+    {
+        _timer += Time.deltaTime;
+        return _timer > WaitTime;
     }
 }

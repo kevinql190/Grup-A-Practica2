@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolBehaviour2 : BaseBehaviour
+public class PatrolBehaviour3 : BaseBehaviour
 {
     protected float _timer;
     public float WaitTime = 3;
@@ -31,3 +31,4 @@ public class PatrolBehaviour2 : BaseBehaviour
         return _timer > WaitTime;
     }
 }
+

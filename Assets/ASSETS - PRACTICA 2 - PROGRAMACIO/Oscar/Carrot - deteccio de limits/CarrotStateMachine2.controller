@@ -577,3 +577,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   WaitTime: 3
+  CheckPoint: {fileID: 0}
+  Speed: 2
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 128
+  WallDetectionDistance: 0.5

@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - WayPoint
   - HealEnemy
+  - CheckpointCarrot2
   layers:
   - Default
   - TransparentFX
