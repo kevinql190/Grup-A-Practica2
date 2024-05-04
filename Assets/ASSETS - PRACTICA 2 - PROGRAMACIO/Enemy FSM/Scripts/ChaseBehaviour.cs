@@ -49,9 +49,9 @@ public class ChaseBehaviour : BaseBehaviour
         animator.SetBool("isPreparingAttack", isAttacking);
 
         // Navmesh
-        Move(animator);
+        Move();
     }
-    private void Move(Animator animator)
+    private void Move()
     {
         enemyNavmesh.SetDestination(_player.position);
     }

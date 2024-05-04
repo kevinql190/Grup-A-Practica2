@@ -25,16 +25,6 @@ public class Cooldown
     public void StartCooldown() => _nextFireTime = Time.time + CooldownTime;
 }
 
-public interface IDamageable
-{
-    int CurrentHealth { get; set; }
-    void TakeDamage(int damage);
-    void Die();
-}
-public interface IStealFoodType
-{
-    void StealFoodType(PanController panController);
-}
 
 public class SingletonPersistent<T> : MonoBehaviour where T : Component
 {
