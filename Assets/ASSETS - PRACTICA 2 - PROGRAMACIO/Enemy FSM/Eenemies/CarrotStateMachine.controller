@@ -35,7 +35,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 2933577835342229695, guid: 2985929b5cba1054584eefca2a906de2, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   exclamationPrefab: {fileID: 2134284237273112152, guid: 77ac6094a60035443ad6704ab4a4ed53, type: 3}
+  heightExclamation: 2
 --- !u!1102 &-3949531302453196253
 AnimatorState:
   serializedVersion: 6
@@ -193,7 +194,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: -5324238279805231817, guid: 2985929b5cba1054584eefca2a906de2, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -411,7 +412,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 1021806162419773930, guid: 2985929b5cba1054584eefca2a906de2, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

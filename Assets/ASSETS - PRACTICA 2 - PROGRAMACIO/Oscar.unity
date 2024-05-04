@@ -5275,14 +5275,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 575998872}
     m_Modifications:
-    - target: {fileID: 1069979034987945699, guid: f3484a9691fcea041ba3295198b5d0f4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2398145899059494251, guid: f3484a9691fcea041ba3295198b5d0f4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3864030639500134171, guid: f3484a9691fcea041ba3295198b5d0f4, type: 3}
       propertyPath: m_Name
       value: CarrotPrefab_waypoints
@@ -17207,11 +17199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579098032092303340, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0017477634
+      value: -0.0017475906
       objectReference: {fileID: 0}
     - target: {fileID: 7579098032092303340, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000025278336
+      value: -0.00002534542
       objectReference: {fileID: 0}
     - target: {fileID: 8033982426014063460, guid: bd20da54caf77a94eab9bd6cbc509e45, type: 3}
       propertyPath: m_IsActive

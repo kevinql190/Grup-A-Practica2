@@ -13,7 +13,7 @@ public class WaypointDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (_enemy.target == other.gameObject)
+        if (_enemy.target == other.gameObject && !_enemy.target.CompareTag("Player"))
         {
             _enemy.target = other.gameObject.GetComponent<WayPoint>().nexPoint.gameObject;
             if (_animator != null)
