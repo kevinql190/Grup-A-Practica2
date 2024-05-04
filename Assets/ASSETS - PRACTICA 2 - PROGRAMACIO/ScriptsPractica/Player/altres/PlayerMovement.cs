@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PlayerTranslate();
-        if (/*combat.attackTime.IsCoolingDown || */abilities.skillTime.IsCoolingDown) return;
         HandleDash();
         ProjectInputVector();
         if (_direction.sqrMagnitude == 0) return;
