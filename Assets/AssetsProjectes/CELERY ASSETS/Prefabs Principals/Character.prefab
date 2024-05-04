@@ -6385,6 +6385,7 @@ MonoBehaviour:
   maxHealth: 5
   damageCooldown:
     cooldownTime: 1
+  lookAtConstraint: {fileID: 0}
   canDie: 1
   deathDuration: 4
   animator: {fileID: 5819544466874086056}

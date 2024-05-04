@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 using Cinemachine;
+using UnityEngine.Animations;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -9,6 +10,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public int maxHealth;
     public Cooldown damageCooldown;
     public event Action<int> OnHealthChanged;
+    [SerializeField] private LookAtConstraint lookAtConstraint;
     public int CurrentHealth
     {
         get { return _currentHealth; }
@@ -79,6 +81,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         animator.SetBool("death", true);
         isDead = true;
         StartCoroutine(DieSequence());
+        lookAtConstraint.enabled = false;
     }
     private IEnumerator DieSequence()
     {
