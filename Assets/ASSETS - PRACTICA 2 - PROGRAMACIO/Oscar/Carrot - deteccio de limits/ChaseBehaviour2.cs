@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChaseBehaviour2 : BaseBehaviour
 {
-    private float Speed = 2;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -16,14 +15,12 @@ public class ChaseBehaviour2 : BaseBehaviour
         bool isAttacking = InRange(animator.transform, attackRange);
         animator.SetBool("isPreparingAttack", isAttacking);
 
-        Move(animator.transform);
+        // Ara no el persegueix, posa aqui el codi
+        Move(animator);
     }
-    private void Move(Transform mySelf)
+    // Ara no el persegueix, posa aqui el codi
+    private void Move(Animator animator)
     {
-        Vector3 targetPos = new Vector3(_player.position.x, mySelf.position.y, _player.position.z);
 
-        mySelf.LookAt(targetPos);
-
-        mySelf.Translate(mySelf.forward * Speed * Time.deltaTime, Space.World);
     }
 }
