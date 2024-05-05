@@ -26,12 +26,16 @@ public class GoToHealBehaviour : BaseBehaviour
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (!reachedHealObject && enemyNavmesh.remainingDistance <= enemyNavmesh.stoppingDistance)
+        if (!reachedHealObject && Vector3.Distance(enemyNavmesh.transform.position, healObject.transform.position) <= 3.1f)
         {
             reachedHealObject = true;
             // Original Speed
             enemyNavmesh.speed = originalSpeed;
             animator.SetBool("isHealing", true);
+        }
+        else if (!reachedHealObject)
+        {
+            enemyNavmesh.SetDestination(healObject.transform.position);
         }
     }
 }
