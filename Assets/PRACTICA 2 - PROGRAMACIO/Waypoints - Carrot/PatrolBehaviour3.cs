@@ -22,6 +22,7 @@ public class PatrolBehaviour3 : BaseBehaviour
         if (InRange(animator.transform, enemyDetectionDistance) && CheckPlayerVisibility(animator))
         {
             animator.SetBool("isChasing", true);
+            enemy.GetComponent<NavMeshAgent>().SetDestination(animator.rootPosition);
         }
 
         // Patrolling

@@ -59,7 +59,6 @@ public class LeekAttack : Enemy
             }
             if (Collider.gameObject.layer == LayerMask.NameToLayer("Breakables")) 
             {
-                Debug.Log("aaaaaaaaaa");
                 Collider.GetComponent<IDamageable>().TakeDamage(-damage);
             } 
         }
@@ -70,7 +69,6 @@ public class LeekAttack : Enemy
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Breakables"))
             {
-                Debug.Log("aaaaaaaaaa");
                 other.GetComponent<IDamageable>().TakeDamage(-damage);
             }
         }

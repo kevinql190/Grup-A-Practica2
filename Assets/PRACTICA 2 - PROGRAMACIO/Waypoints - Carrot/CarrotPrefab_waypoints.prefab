@@ -292,8 +292,8 @@ MonoBehaviour:
   EnemyType: {fileID: 11400000, guid: 6cf33a8193d7521428ad09198488b050, type: 2}
   damage: 1
   target: {fileID: 0}
-  attackRange: 30
-  detectionDistance: 15
+  attackRange: 8
+  detectionDistance: 5
   prepareAttackTime: 0.001
   cooldownAttack: 0.001
   stoppingDistanceAttack: 10

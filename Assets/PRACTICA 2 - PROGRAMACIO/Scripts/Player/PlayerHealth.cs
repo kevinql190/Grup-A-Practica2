@@ -3,9 +3,11 @@ using UnityEngine;
 using System;
 using Cinemachine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] private BlackFade blackFade;
     [Header("Life")]
     public int maxHealth;
     public Cooldown damageCooldown;
@@ -22,7 +24,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private bool canDie;
     [SerializeField] private float deathDuration = 2f;
     private bool isDead;
-    public event Action OnPlayerDeath;
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private Material damageMaterial;
@@ -98,7 +99,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             yield return null;
         }
         AudioManager.Instance.StopAllLoops(1f);
-        OnPlayerDeath?.Invoke();
+        StartCoroutine(DeathSequence());
+    }
+    private IEnumerator DeathSequence()
+    {
+        PlayerInputHandler.Instance.DisableInputs();
+        Time.timeScale = 0;
+        AudioManager.Instance.StopAllLoops(0.5f);
+        yield return StartCoroutine(blackFade.FadeToBlack(0.5f));
+        Time.timeScale = 1;
+        CrossSceneInformation.CurrentTimerValue = LevelManager.Instance.elapsedTime;
+        PlayerInputHandler.Instance.EnableInputs();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void OnDisable()
     {

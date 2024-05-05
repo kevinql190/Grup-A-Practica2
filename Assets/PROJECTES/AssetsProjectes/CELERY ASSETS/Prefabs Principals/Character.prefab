@@ -6283,9 +6283,6 @@ GameObject:
   - component: {fileID: 780128739187819501}
   - component: {fileID: 3925365868652180673}
   - component: {fileID: 2766979330394188569}
-  - component: {fileID: 6295424872791978759}
-  - component: {fileID: 560523565507935674}
-  - component: {fileID: 3678686898519845843}
   - component: {fileID: 8705708056309057494}
   - component: {fileID: 2450547301535663721}
   - component: {fileID: 2252800934429178173}
@@ -6385,7 +6382,7 @@ MonoBehaviour:
   maxHealth: 5
   damageCooldown:
     cooldownTime: 1
-  lookAtConstraint: {fileID: 0}
+  lookAtConstraint: {fileID: 312045676723742031}
   canDie: 1
   deathDuration: 4
   animator: {fileID: 5819544466874086056}
@@ -6487,67 +6484,6 @@ MonoBehaviour:
   moveGizmo: 1
   dashGizmo: 1
   capsule: {fileID: 3090802002781433992}
---- !u!114 &6295424872791978759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356709148019907364}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb3f150f1067fcc4985033bda25525ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fryingPanObject: {fileID: 5483409965237432288}
-  currentFoodType: 0
---- !u!114 &560523565507935674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356709148019907364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8242a269324f47c4d9b6957b1c9ad154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stunTime: 3
-  stunSpeedDecrease: 3
-  lifeLoss: 1
-  cooked: 0
-  skillCasted: 0
---- !u!114 &3678686898519845843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356709148019907364}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0752b24662b3e54ba5f31445ad3ba12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCanvas: {fileID: 4392336422764857061}
-  spawnPoint: {fileID: 6814714053813210075}
-  skillPushSpeed: 0
-  skillTime:
-    cooldownTime: 0.3
-  raycastLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  tomatoBullet: {fileID: 5008637016545302003, guid: e03044af8eb28f34f802f4500fa804ac, type: 3}
-  speedBulletTomato: 20
-  carrotBullet: {fileID: 5008637016545302003, guid: 0f9416bcae0100a4abdb0203517cf952, type: 3}
-  speedBulletCarrot: 20
-  leekWeapon: {fileID: 3527563809404850741, guid: 7dcfc24d11bc414419cc2a7aa1f7d9cb, type: 3}
-  leekDistance: 3.01
-  leekRadiusDegrees: 120
 --- !u!114 &8705708056309057494
 MonoBehaviour:
   m_ObjectHideFlags: 0
